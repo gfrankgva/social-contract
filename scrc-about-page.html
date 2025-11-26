@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)file:///Users/unctad/Downloads/scrc-about-page_1.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About – Social Contract Research Centre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./scrc-about-page_files/css2" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F6F1;
+            color: #2D2D2D;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        /* Header - reusing from homepage */
+        header {
+            padding: 40px 0;
+            border-bottom: 1px solid #d0cdc4;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .seal {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #1C3A54;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .seal-inner {
+            width: 35px;
+            height: 35px;
+            position: relative;
+        }
+
+        .seal-inner::before,
+        .seal-inner::after,
+        .seal-center {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border: 1.5px solid #1C3A54;
+            border-radius: 50%;
+        }
+
+        .seal-inner::before {
+            left: 0;
+            top: 8px;
+        }
+
+        .seal-inner::after {
+            right: 0;
+            top: 8px;
+        }
+
+        .seal-center {
+            left: 8px;
+            top: 0;
+        }
+
+        .org-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1C3A54;
+            letter-spacing: 0.3px;
+        }
+
+        .location {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #6B7280;
+            font-weight: 400;
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #1C3A54;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #5A7257;
+        }
+
+        nav a.active {
+            color: #5A7257;
+        }
+
+        /* Page Title */
+        .page-title {
+            padding: 80px 0 50px 0;
+        }
+
+        .page-title h1 {
+            font-family: 'EB Garamond', serif;
+            font-size: 56px;
+            font-weight: 400;
+            color: #1C3A54;
+            margin-bottom: 0;
+        }
+
+        /* About Content */
+        .about-content {
+            max-width: 800px;
+            padding-bottom: 100px;
+        }
+
+        /* Opening Statement */
+        .opening-statement {
+            background: white;
+            border: 1px solid #d0cdc4;
+            padding: 40px 45px;
+            margin-bottom: 80px;
+        }
+
+        .opening-statement p {
+            font-family: 'EB Garamond', serif;
+            font-size: 24px;
+            line-height: 1.6;
+            color: #1C3A54;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 70px;
+        }
+
+        .section h2 {
+            font-family: 'EB Garamond', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: #1C3A54;
+            margin-bottom: 30px;
+        }
+
+        .section p {
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: #2D2D2D;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Pull Quote - Rousseau */
+        .pull-quote {
+            font-family: 'EB Garamond', serif;
+            font-size: 20px;
+            font-style: italic;
+            color: #1C3A54;
+            padding: 30px 35px;
+            border-left: 3px solid #5A7257;
+            background: rgba(90, 114, 87, 0.03);
+            margin: 50px 0;
+            line-height: 1.6;
+        }
+
+        .pull-quote cite {
+            display: block;
+            font-style: normal;
+            font-size: 15px;
+            color: #6B7280;
+            margin-top: 15px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Simple Diagram */
+        .diagram {
+            margin: 50px 0;
+            padding: 45px;
+            background: white;
+            border: 1px solid #d0cdc4;
+        }
+
+        .diagram-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #6B7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 30px;
+        }
+
+        .flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .flow-item {
+            flex: 1;
+            text-align: center;
+        }
+
+        .flow-box {
+            padding: 20px;
+            border: 2px solid #1C3A54;
+            margin-bottom: 10px;
+        }
+
+        .flow-box-label {
+            font-family: 'EB Garamond', serif;
+            font-size: 18px;
+            color: #1C3A54;
+            font-weight: 600;
+        }
+
+        .flow-arrow {
+            font-size: 24px;
+            color: #5A7257;
+        }
+
+        .flow-description {
+            font-size: 14px;
+            color: #6B7280;
+            margin-top: 10px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            margin-top: 80px;
+            padding-top: 50px;
+            border-top: 1px solid #d0cdc4;
+        }
+
+        .contact-section h2 {
+            font-family: 'EB Garamond', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: #1C3A54;
+            margin-bottom: 25px;
+        }
+
+        .contact-section p {
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .contact-details a {
+            color: #5A7257;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 100px;
+            padding: 50px 0 40px 0;
+            border-top: 1px solid #d0cdc4;
+        }
+
+        .geneva-line {
+            height: 1px;
+            background: linear-gradient(to right, 
+                transparent 0%, 
+                #1C3A54 10%, 
+                #1C3A54 50%,
+                #5A7257 70%,
+                transparent 100%);
+            margin-bottom: 40px;
+            opacity: 0.3;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-info {
+            font-size: 14px;
+            color: #6B7280;
+            line-height: 1.8;
+        }
+
+        .footer-info strong {
+            color: #1C3A54;
+            font-weight: 600;
+        }
+
+        .footer-seal {
+            width: 40px;
+            height: 40px;
+            border: 1.5px solid #1C3A54;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.4;
+        }
+
+        .footer-seal-inner {
+            width: 23px;
+            height: 23px;
+            position: relative;
+        }
+
+        .footer-seal-inner::before,
+        .footer-seal-inner::after,
+        .footer-seal-center {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border: 1px solid #1C3A54;
+            border-radius: 50%;
+        }
+
+        .footer-seal-inner::before {
+            left: 0;
+            top: 5px;
+        }
+
+        .footer-seal-inner::after {
+            right: 0;
+            top: 5px;
+        }
+
+        .footer-seal-center {
+            left: 5px;
+            top: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                padding: 0 30px;
+            }
+
+            .page-title h1 {
+                font-size: 40px;
+            }
+
+            .opening-statement p {
+                font-size: 20px;
+            }
+
+            .section h2 {
+                font-size: 28px;
+            }
+
+            .flow {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="seal">
+                        <div class="seal-inner">
+                            <div class="seal-center"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="org-name">Social Contract Research Centre</div>
+                        <div class="location">Geneva</div>
+                    </div>
+                </div>
+                <nav>
+                    <a href="file:///Users/unctad/Downloads/index.html">Home</a>
+                    <a href="file:///Users/unctad/Downloads/about.html" class="active">About</a>
+                    <a href="file:///Users/unctad/Downloads/scrc-about-page_1.html#tools">Tools</a>
+                    <a href="file:///Users/unctad/Downloads/scrc-about-page_1.html#research">Research</a>
+                    <a href="file:///Users/unctad/Downloads/scrc-about-page_1.html#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-title">
+                <h1>About</h1>
+            </div>
+
+            <div class="about-content">
+                <div class="opening-statement">
+                    <p>The Social Contract Research Centre studies how rules are made, understood, and applied in societies undergoing profound technological and political transformation. We develop practical tools that help ensure rules remain clear, coherent, and legitimate.</p>
+                </div>
+
+                <div class="section">
+                    <h2>The Foundation</h2>
+                    <p>In 1762, Jean-Jacques Rousseau argued that legitimate authority rests only on rules that citizens freely accept. The social contract—the agreement to be governed by shared rules—forms the basis of political society. This insight remains foundational, but the context in which it operates has changed dramatically.</p>
+
+                    <div class="pull-quote">
+                        "The social compact establishes among the citizens an equality of such a kind, that they all bind themselves to observe the same conditions and should therefore all enjoy the same rights."
+                        <cite>Jean-Jacques Rousseau, The Social Contract (1762)</cite>
+                    </div>
+
+                    <p>Modern states face pressures Rousseau could not have imagined. Artificial intelligence reshapes work and institutions. Biotechnology extends lifespans and shifts demographic balances. Public trust in governments weakens globally, even as expectations toward state action grow. Representative democracy struggles to reflect the will of citizens, while technology makes direct consultation technically possible at scale.</p>
+
+                    <p>Most significantly, rules increasingly take automated forms. Algorithms apply regulations. Digital systems execute procedures. Software enforces compliance. When rules can be applied perfectly and automatically, their quality becomes central to freedom itself. Clear, fair rules enable autonomy. Unclear or unjust rules, applied without discretion, become instruments of control.</p>
+
+                    <div class="diagram">
+                        <div class="diagram-title">The Rule Application Cycle</div>
+                        <div class="flow">
+                            <div class="flow-item">
+                                <div class="flow-box">
+                                    <div class="flow-box-label">Rules</div>
+                                </div>
+                                <div class="flow-description">Written by humans, often unclear</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-item">
+                                <div class="flow-box">
+                                    <div class="flow-box-label">Application</div>
+                                </div>
+                                <div class="flow-description">Applied by algorithms, perfectly consistent</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-item">
+                                <div class="flow-box">
+                                    <div class="flow-box-label">Experience</div>
+                                </div>
+                                <div class="flow-description">Lived by citizens, must be legitimate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>What We Do</h2>
+                    <p>The SCRC works at the intersection of political philosophy, legal drafting, and institutional design. Our research examines how clarity, coherence, and legitimacy function in systems where rules are written by humans but increasingly applied by machines.</p>
+
+                    <p>We build tools that address practical problems. Better Rules uses artificial intelligence to analyze legislation, identifying ambiguities, contradictions, and opportunities for clearer expression. The tool helps legal drafters produce rules that citizens can actually understand and follow. Vox Populi provides a platform for structured public consultation, ensuring that citizen input on proposed rules can be meaningfully incorporated into final decisions.</p>
+
+                    <p>These are not theoretical exercises. We work with governments, international organizations, and civil society groups to test new approaches to rulemaking. We study what works and what fails. We publish findings openly.</p>
+
+                    <p>Our research focuses on four connected questions. How can rules be written clearly enough that citizens understand what is required of them? How can different rules within a system be made coherent with each other? How do citizens grant legitimacy to rules in practice, and how is that legitimacy maintained or lost? When millions of people hold different views, how can those views be synthesized into collective decisions that people accept as fair?</p>
+                </div>
+
+                <div class="section">
+                    <h2>Why Geneva</h2>
+                    <p>Geneva has served as neutral ground for difficult conversations for centuries. International organizations, civil society groups, and national governments meet here to negotiate agreements and establish norms. The city's tradition of hosting institutions concerned with global cooperation makes it a natural location for work on the foundations of legitimate governance.</p>
+
+                    <p>Switzerland's own system of direct democracy provides a living example of how citizens can participate directly in rulemaking through referendums and initiatives. While no system is perfect, the Swiss approach demonstrates that meaningful citizen participation in lawmaking remains possible in complex modern states.</p>
+                </div>
+
+                <div class="section">
+                    <h2>Our Approach</h2>
+                    <p>The SCRC is independent and non-partisan. We do not advocate for particular policies or political positions. We focus on the quality of the rulemaking process itself—the mechanisms by which rules are drafted, understood, and accepted.</p>
+
+                    <p>We are technologically informed but not techno-deterministic. Technology changes what is possible, but it does not dictate what is desirable. Tools can serve democratic aims or undermine them. Our work examines how to ensure new capabilities strengthen rather than weaken the social contract.</p>
+
+                    <p>We bridge political philosophy and institutional practice. Abstract principles matter only insofar as they shape real institutions. Practical tools fail if they lack theoretical grounding. We work in both domains simultaneously.</p>
+
+                    <p>Our publications, research, and tools are made available to governments, researchers, and citizens. We believe that strengthening the social contract serves the public interest, and that work toward this goal should be accessible to all who share the concern.</p>
+                </div>
+
+                <div class="section">
+                    <h2>Looking Forward</h2>
+                    <p>Rules will continue to evolve in form and application. Algorithmic systems will play larger roles in governance. The gap between how rules are written and how citizens experience them may widen, or it may close. The legitimacy of political institutions will strengthen or weaken based on whether rulemaking processes can adapt to changing conditions.</p>
+
+                    <p>The SCRC exists to ensure that as rules evolve, they remain instruments of collective self-governance rather than external impositions. The social contract is not a historical artifact. It is renewed or broken in each generation through the quality of the rules people live under and the degree to which those rules reflect genuine consent.</p>
+                </div>
+
+                <div class="contact-section">
+                    <h2>Contact</h2>
+                    <p>For inquiries about collaboration, tool implementation, or research partnerships, contact us at <a href="mailto:contact@scrc.ch">contact@scrc.ch</a>.</p>
+
+                    <div class="contact-details">
+                        <strong>Social Contract Research Centre</strong><br>
+                        Rue de Lausanne 154<br>
+                        1202 Geneva, Switzerland
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="geneva-line"></div>
+            <div class="footer-content">
+                <div class="footer-info">
+                    <strong>Social Contract Research Centre</strong><br>
+                    Rue de Lausanne 154<br>
+                    1202 Geneva, Switzerland<br>
+                    <br>
+                    contact@scrc.ch
+                </div>
+                <div class="footer-seal">
+                    <div class="footer-seal-inner">
+                        <div class="footer-seal-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body></html>
