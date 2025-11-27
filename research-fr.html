@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche – Centre de recherche sur le contrat social</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F6F1;
+            color: #2D2D2D;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        /* Header */
+        header {
+            padding: 40px 0;
+            border-bottom: 1px solid #d0cdc4;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .seal {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #1C3A54;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .seal-inner {
+            width: 35px;
+            height: 35px;
+            position: relative;
+        }
+
+        .seal-inner::before,
+        .seal-inner::after,
+        .seal-center {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border: 1.5px solid #1C3A54;
+            border-radius: 50%;
+        }
+
+        .seal-inner::before {
+            left: 0;
+            top: 8px;
+        }
+
+        .seal-inner::after {
+            right: 0;
+            top: 8px;
+        }
+
+        .seal-center {
+            left: 8px;
+            top: 0;
+        }
+
+        .org-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1C3A54;
+            letter-spacing: 0.3px;
+        }
+
+        .location {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #6B7280;
+            font-weight: 400;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #1C3A54;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #B85C3A;
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+        }
+
+        .lang-switch a {
+            color: #6B7280;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .lang-switch a.active {
+            color: #1C3A54;
+            font-weight: 600;
+        }
+
+        .lang-switch a:hover {
+            color: #B85C3A;
+        }
+
+        .lang-divider {
+            color: #d0cdc4;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px 0;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-family: 'EB Garamond', serif;
+            font-size: 48px;
+            font-weight: 400;
+            color: #1C3A54;
+            line-height: 1.3;
+            margin-bottom: 30px;
+        }
+
+        .hero-intro {
+            font-size: 18px;
+            color: #2D2D2D;
+            line-height: 1.7;
+            max-width: 800px;
+        }
+
+        /* Research Projects Section */
+        .research-section {
+            padding: 60px 0 80px 0;
+            border-top: 1px solid #d0cdc4;
+        }
+
+        .section-title {
+            font-family: 'EB Garamond', serif;
+            font-size: 36px;
+            color: #1C3A54;
+            margin-bottom: 50px;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid #d0cdc4;
+            margin-bottom: 20px;
+            transition: box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 2px 8px rgba(28, 58, 84, 0.06);
+        }
+
+        .project-header {
+            padding: 35px 40px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .project-header:hover .project-name {
+            color: #B85C3A;
+        }
+
+        .project-title-section {
+            flex: 1;
+        }
+
+        .project-name {
+            font-family: 'EB Garamond', serif;
+            font-size: 28px;
+            color: #1C3A54;
+            margin-bottom: 8px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .project-summary {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #6B7280;
+            line-height: 1.5;
+        }
+
+        .project-arrow {
+            font-size: 24px;
+            color: #B85C3A;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .project-card.expanded .project-arrow {
+            transform: rotate(90deg);
+        }
+
+        .project-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .project-card.expanded .project-content {
+            max-height: 3000px;
+            transition: max-height 0.6s ease-in;
+        }
+
+        .project-content-inner {
+            padding: 0 40px 40px 40px;
+            border-top: 1px solid #e5e3da;
+        }
+
+        .project-description {
+            font-size: 17px;
+            color: #2D2D2D;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .project-details {
+            margin-top: 35px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e3da;
+        }
+
+        .detail-section {
+            margin-bottom: 25px;
+        }
+
+        .detail-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1C3A54;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .detail-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .detail-list li {
+            font-size: 16px;
+            color: #2D2D2D;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .detail-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #B85C3A;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #e5e3da;
+        }
+
+        .meta-item {
+            font-size: 15px;
+            color: #6B7280;
+        }
+
+        .meta-label {
+            font-weight: 600;
+            color: #1C3A54;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 100px;
+            padding: 50px 0 40px 0;
+            border-top: 1px solid #d0cdc4;
+        }
+
+        .geneva-line {
+            height: 1px;
+            background: linear-gradient(to right, 
+                transparent 0%, 
+                #1C3A54 10%, 
+                #1C3A54 50%,
+                #B85C3A 70%,
+                transparent 100%);
+            margin-bottom: 40px;
+            opacity: 0.3;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-info {
+            font-size: 14px;
+            color: #6B7280;
+            line-height: 1.8;
+        }
+
+        .footer-info strong {
+            color: #1C3A54;
+            font-weight: 600;
+        }
+
+        .footer-seal {
+            width: 40px;
+            height: 40px;
+            border: 1.5px solid #1C3A54;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.4;
+        }
+
+        .footer-seal-inner {
+            width: 23px;
+            height: 23px;
+            position: relative;
+        }
+
+        .footer-seal-inner::before,
+        .footer-seal-inner::after,
+        .footer-seal-center {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border: 1px solid #1C3A54;
+            border-radius: 50%;
+        }
+
+        .footer-seal-inner::before {
+            left: 0;
+            top: 5px;
+        }
+
+        .footer-seal-inner::after {
+            right: 0;
+            top: 5px;
+        }
+
+        .footer-seal-center {
+            left: 5px;
+            top: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                padding: 0 30px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .project-card {
+                margin-bottom: 15px;
+            }
+
+            .project-header {
+                padding: 25px 20px;
+                gap: 20px;
+            }
+
+            .project-content-inner {
+                padding: 0 20px 30px 20px;
+            }
+
+            .project-name {
+                font-size: 22px;
+            }
+
+            .project-summary {
+                font-size: 15px;
+            }
+
+            .project-arrow {
+                font-size: 20px;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 25px;
+            }
+
+            .nav-right {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            nav {
+                gap: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="seal">
+                        <div class="seal-inner">
+                            <div class="seal-center"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="org-name">Centre de recherche sur le contrat social</div>
+                        <div class="location">Genève</div>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <nav>
+                        <a href="index-fr.html">Accueil</a>
+                        <a href="about-fr.html">À propos</a>
+                        <a href="#tools">Outils</a>
+                        <a href="research-fr.html" class="active">Recherche</a>
+                    </nav>
+                    <div class="lang-switch">
+                        <a href="research.html">EN</a>
+                        <span class="lang-divider">|</span>
+                        <a href="research-fr.html" class="active">FR</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h1>Recherche</h1>
+                <p class="hero-intro">
+                    Nous examinons comment la technologie transforme la nature des règles, du consentement et de la gouvernance légitime. Nos travaux combinent philosophie politique et conception pratique de systèmes, explorant des questions essentielles pour l'organisation des sociétés à l'ère numérique.
+                </p>
+            </section>
+
+            <section class="research-section">
+                <h2 class="section-title">Projets actifs</h2>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title-section">
+                            <h3 class="project-name">Les DAO comme contrats sociaux numériques</h3>
+                            <p class="project-summary">Recherche examinant comment la gouvernance blockchain peut mettre en œuvre des contrats sociaux légitimes</p>
+                        </div>
+                        <div class="project-arrow">→</div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <div class="project-content-inner">
+                            <p class="project-description">
+                                Les <a href="https://ethereum.org/fr/dao/" target="_blank" style="color: #B85C3A; text-decoration: none; border-bottom: 1px solid #B85C3A;">organisations autonomes décentralisées (DAO)</a> sont des tentatives pratiques de mettre en œuvre le contrat social de Rousseau via la technologie blockchain. Elles encodent les règles sous forme de <a href="https://ethereum.org/fr/smart-contracts/" target="_blank" style="color: #B85C3A; text-decoration: none; border-bottom: 1px solid #B85C3A;">smart contracts</a>, les exécutent algorithmiquement et se gouvernent par le vote des détenteurs de <a href="https://ethereum.org/fr/developers/docs/standards/tokens/" target="_blank" style="color: #B85C3A; text-decoration: none; border-bottom: 1px solid #B85C3A;">tokens</a>. Mais créent-elles réellement une gouvernance légitime ? La plupart échouent au test de Rousseau : la concentration de tokens crée des factions dominantes, le pouvoir de vote ne s'aligne pas avec l'enjeu réel dans les résultats, et il n'y a aucun mécanisme pour distinguer la volonté générale des intérêts particuliers.
+                            </p>
+
+                            <p class="project-description">
+                                Cette recherche développe un cadre d'évaluation de la légitimité des DAO en tant que contrats sociaux et conçoit des mécanismes de gouvernance résistant à la capture par les factions tout en préservant un consentement authentique.
+                            </p>
+
+                            <div class="project-details">
+                                <div class="detail-section">
+                                    <div class="detail-title">Composantes de recherche</div>
+                                    <ul class="detail-list">
+                                        <li>Article de cadrage définissant les critères de légitimité des DAO et établissant la correspondance entre les conditions de Rousseau et la gouvernance blockchain</li>
+                                        <li>Études de cas analysant 10-15 DAO majeures, les évaluant selon le cadre de légitimité et documentant les schémas de capture factionnelle</li>
+                                        <li>Intégration d'outils concevant des modules Vox Populi pour la gouvernance DAO et prototypant Législateur pour la rédaction de smart contracts</li>
+                                        <li>Boîte à outils de gouvernance DAO open source testée avec des organisations partenaires</li>
+                                    </ul>
+                                </div>
+
+                                <div class="detail-section">
+                                    <div class="detail-title">Questions clés</div>
+                                    <ul class="detail-list">
+                                        <li>Qu'est-ce qui rend l'application algorithmique des règles légitime ?</li>
+                                        <li>Comment les DAO peuvent-elles se protéger de la capture factionnelle tout en restant décentralisées ?</li>
+                                        <li>À quoi ressemble le consentement continu dans les systèmes automatisés ?</li>
+                                        <li>Comment aligner le pouvoir décisionnel avec l'enjeu réel dans les résultats ?</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="project-meta">
+                                <div class="meta-item">
+                                    <span class="meta-label">Calendrier :</span> 12-18 mois
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Statut :</span> Développement du cadre
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Production :</span> Article académique, modèle opérationnel, boîte à outils open source
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Les projets futurs seront ajoutés ici -->
+
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="geneva-line"></div>
+            <div class="footer-content">
+                <div class="footer-info">
+                    <strong>Centre de recherche sur le contrat social</strong><br>
+                    Rue François-Bonivard 8<br>
+                    1201 Genève, Suisse<br>
+                    <br>
+                    contact@social-contract.ch
+                </div>
+                <div class="footer-seal">
+                    <div class="footer-seal-inner">
+                        <div class="footer-seal-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Accordion functionality for project cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            projectCards.forEach(card => {
+                const header = card.querySelector('.project-header');
+                
+                header.addEventListener('click', function() {
+                    // Close all other cards
+                    projectCards.forEach(otherCard => {
+                        if (otherCard !== card && otherCard.classList.contains('expanded')) {
+                            otherCard.classList.remove('expanded');
+                        }
+                    });
+                    
+                    // Toggle current card
+                    card.classList.toggle('expanded');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
