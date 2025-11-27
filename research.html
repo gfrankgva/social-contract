@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research – Social Contract Research Centre</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -45,47 +46,13 @@
             gap: 20px;
         }
 
-        .seal {
+        .logo-svg {
             width: 60px;
             height: 60px;
-            border: 2px solid #1C3A54;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+            flex-shrink: 0;
+        }
         }
 
-        .seal-inner {
-            width: 35px;
-            height: 35px;
-            position: relative;
-        }
-
-        .seal-inner::before,
-        .seal-inner::after,
-        .seal-center {
-            content: '';
-            position: absolute;
-            width: 18px;
-            height: 18px;
-            border: 1.5px solid #1C3A54;
-            border-radius: 50%;
-        }
-
-        .seal-inner::before {
-            left: 0;
-            top: 8px;
-        }
-
-        .seal-inner::after {
-            right: 0;
-            top: 8px;
-        }
-
-        .seal-center {
-            left: 8px;
-            top: 0;
         }
 
         .org-name {
@@ -366,47 +333,6 @@
             font-weight: 600;
         }
 
-        .footer-seal {
-            width: 40px;
-            height: 40px;
-            border: 1.5px solid #1C3A54;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0.4;
-        }
-
-        .footer-seal-inner {
-            width: 23px;
-            height: 23px;
-            position: relative;
-        }
-
-        .footer-seal-inner::before,
-        .footer-seal-inner::after,
-        .footer-seal-center {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            border: 1px solid #1C3A54;
-            border-radius: 50%;
-        }
-
-        .footer-seal-inner::before {
-            left: 0;
-            top: 5px;
-        }
-
-        .footer-seal-inner::after {
-            right: 0;
-            top: 5px;
-        }
-
-        .footer-seal-center {
-            left: 5px;
-            top: 0;
         }
 
         /* Responsive */
@@ -471,11 +397,12 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo-section">
-                    <div class="seal">
-                        <div class="seal-inner">
-                            <div class="seal-center"></div>
-                        </div>
-                    </div>
+                    <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="90" fill="none" stroke="#1C3A54" stroke-width="2"/>
+                        <circle cx="100" cy="75" r="25" fill="none" stroke="#1C3A54" stroke-width="2"/>
+                        <circle cx="78" cy="108" r="25" fill="none" stroke="#1C3A54" stroke-width="2"/>
+                        <circle cx="122" cy="108" r="25" fill="none" stroke="#1C3A54" stroke-width="2"/>
+                    </svg>
                     <div>
                         <div class="org-name">Social Contract Research Centre</div>
                         <div class="location">Geneva</div>
@@ -485,7 +412,7 @@
                     <nav>
                         <a href="index.html">Home</a>
                         <a href="scrc-about-page.html">About</a>
-                        <a href="#tools">Tools</a>
+                        <a href="tools.html">Tools</a>
                         <a href="research.html" class="active">Research</a>
                     </nav>
                     <div class="lang-switch">
@@ -650,7 +577,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Accordion functionality for project cards
         document.addEventListener('DOMContentLoaded', function() {
             const projectCards = document.querySelectorAll('.project-card');
