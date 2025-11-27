@@ -568,6 +568,64 @@
 
                 <!-- Les projets futurs seront ajoutés ici -->
 
+                <!-- Règles en Code -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title-section">
+                            <h3 class="project-name">Règles en code</h3>
+                            <p class="project-summary">Examiner comment la gouvernance algorithmique transforme la nature du consentement, de l'application et de la légitimité</p>
+                        </div>
+                        <div class="project-arrow">→</div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <div class="project-content-inner">
+                            <p class="project-description">
+                                Comme l'écrivait Lawrence Lessig dans <a href="https://lessig.org/product/code/" target="_blank" style="color: #B85C3A; text-decoration: none; border-bottom: 1px solid #B85C3A;">"Code and Other Laws of Cyberspace" (1999)</a>, l'architecture logicielle contraint les comportements aussi puissamment que les règles juridiques—"<a href="https://grok.x.ai/search?query=code+is+law+Lawrence+Lessig" target="_blank" style="color: #B85C3A; text-decoration: none; border-bottom: 1px solid #B85C3A;">code is law</a>". Mais l'inverse est désormais possible : intégrer les règles juridiques directement dans le code. Cette recherche examine comment la gouvernance algorithmique change la nature du consentement, de l'application et de la légitimité lorsque les règles s'exécutent automatiquement dans les systèmes, <a href="https://grok.x.ai/search?query=Internet+des+objets+IoT" target="_blank" style="color: #B85C3A; text-decoration: none; border-bottom: 1px solid #B85C3A;">appareils IoT</a> et processus autonomes.
+                            </p>
+
+                            <p class="project-description">
+                                Le <a href="https://www.digital.govt.nz/standards-and-guidance/technology-and-architecture/rules-as-code/" target="_blank" style="color: #B85C3A; text-decoration: none; border-bottom: 1px solid #B85C3A;">mouvement "rules as code"</a> propose de rédiger la législation dans des formats exploitables par les machines parallèlement au texte lisible par l'humain. Lorsque les règles deviennent des algorithmes qui s'exécutent en temps réel, des questions fondamentales surgissent sur le consentement, la transparence et le contrat social lui-même.
+                            </p>
+
+                            <div class="project-details">
+                                <div class="detail-section">
+                                    <div class="detail-title">Questions de recherche</div>
+                                    <ul class="detail-list">
+                                        <li>À quoi ressemble un consentement significatif lorsque les règles s'exécutent automatiquement sans intermédiaires humains ?</li>
+                                        <li>Comment les règles algorithmiques peuvent-elles rester transparentes et contestables lorsqu'intégrées dans des systèmes opaques ?</li>
+                                        <li>Qui est responsable lorsqu'un algorithme applique mal une règle—le législateur qui l'a écrite, le développeur qui l'a codée, ou le système qui l'a exécutée ?</li>
+                                        <li>Comment maintenir la flexibilité et l'interprétation qui font fonctionner les systèmes juridiques humains lorsque les règles sont réduites à une logique binaire ?</li>
+                                        <li>Le contrat social de Rousseau peut-il survivre lorsque la gouvernance devient algorithmique ?</li>
+                                    </ul>
+                                </div>
+
+                                <div class="detail-section">
+                                    <div class="detail-title">Périmètre</div>
+                                    <ul class="detail-list">
+                                        <li>Analyse comparative des initiatives "rules as code" en Nouvelle-Zélande, Australie, France et Estonie</li>
+                                        <li>Études de cas : conformité fiscale automatisée, systèmes d'autorisation de construire, algorithmes d'éligibilité aux prestations</li>
+                                        <li>Examen technique de la traduction (ou non-traduction) de la logique juridique en code exécutable</li>
+                                        <li>Cadre philosophique : quand l'application algorithmique respecte-t-elle vs viole-t-elle le contrat social ?</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="project-meta">
+                                <div class="meta-item">
+                                    <span class="meta-label">Calendrier :</span> 18-24 mois
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Statut :</span> Phase de revue de littérature
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Production :</span> Article de recherche, recommandations politiques, démonstrateur prototype
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </section>
         </div>
     </main>
@@ -581,7 +639,7 @@
                     Rue François-Bonivard 8<br>
                     1201 Genève, Suisse<br>
                     <br>
-                    contact@social-contract.ch
+                    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bdded2d3c9dcdec9fdced2ded4dcd190ded2d3c9cfdcdec993ded5">[email&#160;protected]</a>
                 </div>
                 <div class="footer-seal">
                     <div class="footer-seal-inner">
@@ -592,7 +650,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Accordion functionality for project cards
         document.addEventListener('DOMContentLoaded', function() {
             const projectCards = document.querySelectorAll('.project-card');
@@ -605,14 +663,4 @@
                     projectCards.forEach(otherCard => {
                         if (otherCard !== card && otherCard.classList.contains('expanded')) {
                             otherCard.classList.remove('expanded');
-                        }
-                    });
-                    
-                    // Toggle current card
-                    card.classList.toggle('expanded');
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+          

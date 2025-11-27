@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools - Social Contract Research Centre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #F8F6F1;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 1px solid #d0cdc4;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .seal {
+            width: 45px;
+            height: 45px;
+            background: #1C3A54;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'EB Garamond', serif;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .site-title {
+            font-family: 'EB Garamond', serif;
+            font-size: 20px;
+            color: #1C3A54;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #6B7280;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #1C3A54;
+        }
+
+        nav a.active {
+            color: #1C3A54;
+        }
+
+        .lang-switch {
+            color: #B85C3A;
+            font-weight: 600;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'EB Garamond', serif;
+            font-size: 48px;
+            color: #1C3A54;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #6B7280;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Tools section */
+        .tools-section {
+            padding: 40px 0 80px;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            font-size: 18px;
+            color: #6B7280;
+            line-height: 1.7;
+        }
+
+        .tool-card {
+            background: white;
+            border: 1px solid #d0cdc4;
+            margin-bottom: 20px;
+            transition: box-shadow 0.2s;
+        }
+
+        .tool-card:hover {
+            box-shadow: 0 2px 8px rgba(28, 58, 84, 0.06);
+        }
+
+        .tool-header {
+            padding: 35px 40px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .tool-header:hover .tool-name {
+            color: #B85C3A;
+        }
+
+        .tool-title-section {
+            flex: 1;
+        }
+
+        .tool-arrow {
+            font-size: 24px;
+            color: #B85C3A;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .tool-card.expanded .tool-arrow {
+            transform: rotate(90deg);
+        }
+
+        .tool-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .tool-card.expanded .tool-body {
+            max-height: 5000px;
+            transition: max-height 0.6s ease-in;
+        }
+
+        .tool-body-inner {
+            padding: 0 40px 40px 40px;
+            border-top: 1px solid #e5e3da;
+        }
+
+        .tool-status {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+
+        .status-active {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+
+        .status-development {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .status-concept {
+            background: #E0E7FF;
+            color: #3730A3;
+        }
+
+        .tool-name {
+            font-family: 'EB Garamond', serif;
+            font-size: 36px;
+            color: #1C3A54;
+            margin-bottom: 12px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .tool-tagline {
+            font-size: 18px;
+            color: #6B7280;
+            font-weight: 500;
+        }
+
+        .tool-description {
+            font-size: 17px;
+            color: #374151;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .tool-features {
+            margin-top: 35px;
+        }
+
+        .feature-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1C3A54;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: #1C3A54;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .feature-label {
+            font-weight: 600;
+            color: #1C3A54;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            color: #6B7280;
+            line-height: 1.5;
+        }
+
+        .tool-stages {
+            margin-top: 30px;
+        }
+
+        .stage {
+            border-left: 3px solid #B85C3A;
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+
+        .stage-title {
+            font-weight: 600;
+            color: #1C3A54;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .stage-description {
+            color: #6B7280;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .tool-users {
+            background: #F9FAFB;
+            padding: 25px;
+            border-radius: 4px;
+            margin-top: 30px;
+        }
+
+        .users-title {
+            font-weight: 600;
+            color: #1C3A54;
+            margin-bottom: 12px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .users-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .user-tag {
+            background: white;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #374151;
+            border: 1px solid #d0cdc4;
+        }
+
+        /* Footer */
+        footer {
+            background: #1C3A54;
+            color: #E5E7EB;
+            padding: 50px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h3 {
+            font-family: 'EB Garamond', serif;
+            font-size: 20px;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .footer-about p {
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .footer-links h4 {
+            font-family: 'EB Garamond', serif;
+            font-size: 18px;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #E5E7EB;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #B85C3A;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                padding: 0 30px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .tool-card {
+                margin-bottom: 15px;
+            }
+
+            .tool-header {
+                padding: 25px 20px;
+                gap: 20px;
+            }
+
+            .tool-body-inner {
+                padding: 0 20px 30px 20px;
+            }
+
+            .tool-name {
+                font-size: 28px;
+            }
+
+            .tool-tagline {
+                font-size: 16px;
+            }
+
+            .tool-arrow {
+                font-size: 20px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            nav {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="seal">SCRC</div>
+                    <a href="index.html" class="site-title">Social Contract Research Centre</a>
+                </div>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="tools.html" class="active">Tools</a>
+                    <a href="research.html">Research</a>
+                    <a href="scrc-about-page.html">About</a>
+                    <a href="tools-fr.html" class="lang-switch">FR</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero">
+            <div class="container">
+                <h1>Tools</h1>
+                <p>Practical instruments to make rules clearer, more coherent, and closer to those who live under them</p>
+            </div>
+        </div>
+
+        <div class="tools-section">
+            <div class="container">
+                <div class="section-intro">
+                    Our tools address different stages of the rule-making process: improving existing texts, consulting citizens, and drafting new rules that embody the general will.
+                </div>
+
+                <!-- Better Rules -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-title-section">
+                            <span class="tool-status status-development">In Development</span>
+                            <h2 class="tool-name">Better Rules</h2>
+                            <p class="tool-tagline">AI-assisted tool to improve clarity, coherence, and applicability of legal texts</p>
+                        </div>
+                        <div class="tool-arrow">→</div>
+                    </div>
+                    
+                    <div class="tool-body">
+                        <div class="tool-body-inner">
+                        <p class="tool-description">
+                            Better Rules helps rule-makers produce clearer, more consistent, and more applicable laws and regulations. It provides refined versions of legal texts that are both human-readable and machine-ready, reducing misinterpretation and implementation costs.
+                        </p>
+
+                        <div class="tool-features">
+                            <div class="feature-title">What It Does</div>
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <div class="feature-icon">1</div>
+                                    <div class="feature-text">
+                                        <div class="feature-label">Makes Text Clear</div>
+                                        <div class="feature-desc">Fixes vocabulary, grammar, and excessive wording without altering meaning</div>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">2</div>
+                                    <div class="feature-text">
+                                        <div class="feature-label">Ensures Logic</div>
+                                        <div class="feature-desc">Detects contradictions, circular references, and structural inconsistencies</div>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">3</div>
+                                    <div class="feature-text">
+                                        <div class="feature-label">Makes Rules Applicable</div>
+                                        <div class="feature-desc">Ensures every obligation specifies what, who, how, when, cost, and by whom</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tool-stages">
+                            <div class="feature-title">Three-Stage Process</div>
+                            
+                            <div class="stage">
+                                <div class="stage-title">Stage 1: Clear</div>
+                                <div class="stage-description">
+                                    Identifies undefined terms, jargon, faulty sentences, hidden conditions, and excessive wording. Output: cleaner version with tracked changes and explanations.
+                                </div>
+                            </div>
+
+                            <div class="stage">
+                                <div class="stage-title">Stage 2: Logical</div>
+                                <div class="stage-description">
+                                    Checks for contradictions, incomplete conditions, circular references, timeline conflicts, role conflicts, and reference errors. Output: logically consistent version with resolved issues.
+                                </div>
+                            </div>
+
+                            <div class="stage">
+                                <div class="stage-title">Stage 3: Applicable</div>
+                                <div class="stage-description">
+                                    Verifies every rule specifies its substance, subjects, procedures, timelines, costs, and administering authority. Output: structured restatement showing missing elements, usable by both people and machines.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tool-users">
+                            <div class="users-title">Who Uses It</div>
+                            <div class="users-list">
+                                <span class="user-tag">Government drafters</span>
+                                <span class="user-tag">Parliamentary offices</span>
+                                <span class="user-tag">Ministers & agency heads</span>
+                                <span class="user-tag">Implementing agencies</span>
+                                <span class="user-tag">Legal consultants</span>
+                                <span class="user-tag">Citizens & civic groups</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vox Populi -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-title-section">
+                            <span class="tool-status status-concept">Concept Phase</span>
+                            <h2 class="tool-name">Vox Populi</h2>
+                            <p class="tool-tagline">Consultation platform to distinguish general will from particular interests</p>
+                        </div>
+                        <div class="tool-arrow">→</div>
+                    </div>
+                    
+                    <div class="tool-body">
+                        <div class="tool-body-inner">
+                        <p class="tool-description">
+                            Vox Populi allows citizens concerned by a proposed or existing law to provide structured input. AI aggregates and analyzes contributions, giving policymakers insight into how citizens perceive rules — distinguishing the general will from faction interests or mere aggregated preferences.
+                        </p>
+
+                        <div class="tool-features">
+                            <div class="feature-title">Core Capabilities</div>
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <div class="feature-icon">→</div>
+                                    <div class="feature-text">
+                                        <div class="feature-label">Structured Consultation</div>
+                                        <div class="feature-desc">Guides citizens through focused questions about proposed rules</div>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">→</div>
+                                    <div class="feature-text">
+                                        <div class="feature-label">Pattern Analysis</div>
+                                        <div class="feature-desc">AI identifies common concerns versus special interests</div>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">→</div>
+                                    <div class="feature-text">
+                                        <div class="feature-label">Legitimacy Insights</div>
+                                        <div class="feature-desc">Shows whether proposed rules align with genuine common good</div>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">→</div>
+                                    <div class="feature-text">
+                                        <div class="feature-label">Faction Detection</div>
+                                        <div class="feature-desc">Flags coordinated campaigns that may distort true consensus</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tool-users">
+                            <div class="users-title">Who Uses It</div>
+                            <div class="users-list">
+                                <span class="user-tag">Legislators</span>
+                                <span class="user-tag">Policy makers</span>
+                                <span class="user-tag">Government ministries</span>
+                                <span class="user-tag">Citizens</span>
+                                <span class="user-tag">Civil society organizations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lawgiver -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-title-section">
+                            <span class="tool-status status-concept">Concept Phase</span>
+                            <h2 class="tool-name">Lawgiver</h2>
+                            <p class="tool-tagline">AI-assisted drafting of new rules from articulated common will</p>
+                        </div>
+                        <div class="tool-arrow">→</div>
+                    </div>
+                    
+                    <div class="tool-body">
+                        <div class="tool-body-inner">
+                        <p class="tool-description">
+                            Inspired by Rousseau's concept of the ideal legislator — one who understands human nature without being subject to it — Lawgiver helps draft new rules from scratch based on clearly articulated principles and the general will. It translates policy intent into precise, executable legal text while remaining neutral to particular interests.
+                        </p>
+
+                        <div class="tool-features">
+                            <div class="feature-title">Key Principles</div>
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <div class="feature-icon">✦</div>
+                                    <div class="feature-text">
+                                        <div class="feature-label">Neutral Drafting</div>
+                                        <div class="feature-desc">AI drafts without personal stake or partisan bias</div>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">✦</div>
+                                    <div class="feature-text">
+                                        <div class="feature-label">From Principles to Code</div>
+                                        <div class="feature-desc">Converts articulated common will into precise legal language—both human-readable text and machine-executable rules. Following the <a href="https://www.digital.govt.nz/standards-and-guidance/technology-and-architecture/rules-as-code/" target="_blank" style="color: #B85C3A; text-decoration: none; border-bottom: 1px solid #B85C3A;">"rules as code" movement</a>, laws become algorithms that can be embedded directly into systems and processes.</div>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">✦</div>
+                                    <div class="feature-text">
+                                        <div class="feature-label">No Legislative Power</div>
+                                        <div class="feature-desc">Tool proposes; people decide through democratic process</div>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">✦</div>
+                                    <div class="feature-text">
+                                        <div class="feature-label">Clear & Coherent</div>
+                                        <div class="feature-desc">Built-in clarity, logic, and applicability checks</div>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">✦</div>
+                                    <div class="feature-text">
+                                        <div class="feature-label">Machine-Readable Output</div>
+                                        <div class="feature-desc">Generates rules in formats that machines can execute directly—turning legislation into algorithmic governance</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tool-stages">
+                            <div class="feature-title">The Rousseauian Tension</div>
+                            <div class="tool-description">
+                                Rousseau described an ideal lawgiver who "sees all human passions without experiencing them" and can "work across time without personal stake." AI uniquely fits this description — it can draft objectively. But Rousseau insisted the lawgiver has no legislative power: only the people can legitimize rules through free consent. Lawgiver embodies this tension: AI drafts, people decide.
+                            </div>
+                        </div>
+
+                        <div class="tool-users">
+                            <div class="users-title">Potential Applications</div>
+                            <div class="users-list">
+                                <span class="user-tag">Constitutional drafting</span>
+                                <span class="user-tag">Smart contract authoring</span>
+                                <span class="user-tag">DAO governance rules</span>
+                                <span class="user-tag">International agreements</span>
+                                <span class="user-tag">Regulatory frameworks</span>
+                                <span class="user-tag">Algorithmic governance systems</span>
+                                <span class="user-tag"><a href="https://grok.x.ai/search?query=Internet+of+Things+IoT" target="_blank" style="color: inherit; text-decoration: none;">IoT device rule engines</a></span>
+                                <span class="user-tag">Automated compliance systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Social Contract Research Centre</h3>
+                    <p>Based in Geneva, we develop tools and research to improve how rules are made and understood, inspired by Rousseau's vision of legitimate governance through clarity and consent.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigate</h4>
+                    <a href="index.html">Home</a>
+                    <a href="tools.html">Tools</a>
+                    <a href="research.html">Research</a>
+                    <a href="scrc-about-page.html">About</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="/cdn-cgi/l/email-protection#3d54535b527d4e525e545c51105e5253494f5c5e49135e55">Contact</a>
+                    <a href="tools-fr.html">Version française</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Social Contract Research Centre, Geneva</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Accordion functionality for tool cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const toolCards = document.querySelectorAll('.tool-card');
+            
+            toolCards.forEach(card => {
+                const header = card.querySelector('.tool-header');
+                
+                header.addEventListener('click', function() {
+                    // Close all other cards
+                    toolCards.forEach(otherCard => {
+                        if (otherCard !== card && otherCard.classList.contains('expanded')) {
+                            otherCard.classList.remove('expanded');
+                        }
+                    });
+                    
+                    // Toggle current card
+                    card.classList.toggle('expanded');
+                });
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+     
